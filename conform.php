@@ -30,23 +30,23 @@
 
             echo "<p>年齢は０～１５０の間で入力をしてください</p>";
 
-        }elseif{!preg_match("/^[0-9 -]{1,13}$/",$phone)
+        }elseif(!preg_match("/^[0-9 -]{1,13}$/",$phone)){
 
-            echo "電話番号は半角数字とハイフンを使い入力してください";
+            echo "<p>電話番号は半角数字とハイフンを使い入力してください</p>";
 
         }elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 
             echo "このメールアドレスは正しくありません";
 
-        }elseif{!preg_match("/^[ぁ-ん ァ-ヶ a-zA-Z 一-龠 0-9]+$/u", $address)
+        }elseif(!preg_match("/^[ぁ-ん ァ-ヶ a-zA-Z 一-龠 0-9]+$/u", $address)){
             
-            echo "<p>住所は適切な文字及び半角英数字で入力してください";
+            echo "<p>住所は適切な文字及び半角英数字で入力してください</p>";
 
         }else{
 
             echo "<p>名前:" .htmlspecialchars($username,ENT_QUOTES,'UTF-8') ."</p>";
             echo "<p>年齢:{$age}歳</p>";
-            echo "<p>電話番号:".htmlspecialchars($phone,ENT_QUOTES,'UTF-8')"</p>";
+            echo "<p>電話番号:".htmlspecialchars($phone,ENT_QUOTES,'UTF-8'). "</p>";
             echo "<p>メールアドレス:{$email}</p>";
             echo "<p>住所:" .htmlspecialchars($address,ENT_QUOTES,'UTF-8') ."</p>";
             echo "<p>質問:{$note}</p>";
